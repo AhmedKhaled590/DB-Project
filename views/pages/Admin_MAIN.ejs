@@ -1,0 +1,45 @@
+<%- include('../templates/header.ejs'); %>
+
+    <body>
+        <div class="container-fluid dd">
+            <nav class="nav">
+                <div class="container">
+                    <div class="logo">
+                        <a href="/">Blood Bank</a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a>Admin Panel</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+            </nav>
+            <div class="container btns">
+                <div class="col-4 col-md-12 offset-md-4 pt-3">
+                    <a href="/Admin/DON" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
+                            src="images/bloodPoint.png"><span class="req">Donation
+                            Orders</span></a>
+                </div>
+    
+                <div class="col-4 col-md-12 offset-md-4  pt-3">
+                    <a href="/Admin/Inventory" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
+                            src="images/storage.png"><span class="req">Inventory</span></a>
+                </div>
+
+                <div class="col-4 col-md-12 offset-md-4  pt-3">
+                    <a href="/Admin/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
+                            src="images/blood-test.png"><span class="req">Test Results</span></a>
+                </div>
+    
+            </div>
+        </div>
+
+        
+
+    </body>
+    <%- include('../templates/footer.ejs'); %>

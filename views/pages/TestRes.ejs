@@ -1,0 +1,71 @@
+<%- include('../templates/header.ejs'); %>
+
+<body>
+    <div class="container-fluid dd">
+        <nav class="nav">
+            <div class="container">
+                <div class="logo">
+                    <a href="/">Blood Bank</a>
+                </div>
+                <div id="mainListDiv" class="main_list">
+                    <ul class="navlinks">
+                        <li><a>Admin Panel</a></li>
+                    </ul>
+                </div>
+                <span class="navTrigger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+        </nav>
+        <table style="display: none;" class="table table-bordered  table-bg">
+            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Test Results</h1>
+            <tbody>
+                <tr>
+                    <td class="hd" scope="row">Order ID</td>
+                    <td class="hd">Name</td>
+                    <td class="hd">Doctor Name</td>
+                    <td class="hd">Blood Group</td>
+                    <td class="hd">Final Result</td>
+                    <td class="hd">Appointement</td>
+                </tr>
+
+                <tr>
+                    <td  scope="row">1</td>
+                    <td>Ahmed Gamal</td>
+                    <td>Ahmed Gamal</td>
+                    <td>A+</td>
+                    <td>Confirmed</td>
+                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Set an appointement</button></td>
+
+                </tr>
+
+                <tr>
+                    <td  scope="row">2</td>
+                    <td>Ahmed Mahmoud</td>
+                    <td>Ahmed Mahmoud</td>
+                    <td>A+</td>
+                    <td>In Queue</td>
+                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Set an appointement</button></td>
+
+                </tr>
+
+                <tr>
+                    <td  scope="row">3</td>
+                    <td>Omar Mohamed</td>
+                    <td>Omar Mohamed</td>
+                    <td>A+</td>
+                    <td>In Queue</td>
+                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Set an appointement</button></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+</body>
+<%- include('../templates/footer.ejs'); %>
