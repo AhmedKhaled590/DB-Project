@@ -1,5 +1,9 @@
 <%- include('../templates/header.ejs'); %>
-
+<script>
+	$(document).ready(function(){
+		$(".toast").toast();
+	});
+	</script>
 <body>
 	
 	<div class="limiter">
@@ -39,7 +43,7 @@
 
 
 					<div class="text-center p-t-90">
-					<p style="color: white;">Don't have an Account? <a class="txt1" href="Register.html"> Register Now!</a></p>
+					<p style="color: white;">Don't have an Account? <a class="txt1" href="/Register"> Register Now!</a></p>
 
 						<a class="txt1" href="#">
 							Forgot Password?

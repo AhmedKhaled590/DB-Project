@@ -2,50 +2,69 @@
 
 
   <body>
-    <div class="container-fluid dd">
-      <nav class="navbar navbar-expand-lg navbar-light bg-trans">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a style="color: rgb(255, 249, 249); font-size:30px;font-weight: 400;" class="nav-item nav-link"
-              href="/">Home<span class="sr-only">(current)</span></a>
+    <div id="circle">
+      <div class="loader">
+        <div class="loader">
+          <div class="loader">
+            <div class="loader">
 
-            <img style="width:5%; height: 10%;margin-left: 5%;" src="images/user.svg">
-            <p style="color: rgb(255, 249, 249); font-size:30px;font-weight: 400;" class="nav-item nav-link">User Name
-            </p>
-            <a class="nav-item nav-link"
-              style="margin-left: 45%;color: rgb(255, 249, 249);; font-size:30px;font-weight: 400;" href="/">Log Out
-              <span class="sr-only">(current)</span></a>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <div style="display: none;" class="container-fluid dd">
+
+      <nav style="margin:0;" class="navbar navbar-expand-lg navbar-dark bg-trans">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+          aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          <a style="width: 1%;" href="/Notif"><img style="width: 100%;" src="../../images/notification.png"></a>
+          <img style="width: 1%;margin-left: 2%;" src="../../images/user.svg">
+          <p class="nav-item nav-link">User Name</p>
+          <a style="width:1% ;" href="/"><img style="width: 150%;" src="../../images/log-out.png"></a>
+
+        </div>
       </nav>
+
+
+
+
+
       <div style="display: none;" class="container-fluid btns d-flex flex-row justify-content-center">
         <div class="row">
           <div class="col-4 col-md-6 ">
-            <a href="/PReq" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
+            <a href="/HReq" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
                 src="images/bloodPoint.png"><span class="req">Requset Blood</span></a>
           </div>
 
           <div class="col-4 col-md-6 ">
             <a href="/Donate" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-                src="images/bloodPoint.png"><span class="req">Donate Us</span></a>
+                src="images/bloodPoint.png"><span class="req">Donate</span></a>
           </div>
         </div>
         <div class="row">
-        <div class="col-4 col-md-6">
-          <a href="/Admin/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-              src="images/blood-test.png"><span class="req">Test Results</span></a>
+          <div class="col-4 col-md-6">
+            <a href="/Home/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
+                src="images/blood-test.png"><span class="req">Test Results</span></a>
+          </div>
+
+          <div class="col-4 col-md-6">
+            <a href="/Home/changeappointment" class="req btn btn-request btn-circle btn-circle-xl m-1"><img
+                style="width: 30%;" src="images/hourglass.png"><span style="font-size:30px;" class="req">Change
+                Appointement</span></a>
+          </div>
         </div>
 
-        <div class="col-4 col-md-6">
-          <a href="/Admin/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-              src="images/hourglass.png"><span style="font-size:30px;" class="req">Change Appointement</span></a>
-        </div>
-      </div>
-        
       </div>
       <table style="display: none;" class="table table-bordered table-bg">
         <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Total Donations today</h1>
@@ -80,4 +99,7 @@
 
     </div>
   </body>
+  <script>
+    
+  </script>
   <%- include('../templates/footer.ejs'); %>

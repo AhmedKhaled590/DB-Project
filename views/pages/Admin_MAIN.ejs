@@ -1,45 +1,49 @@
 <%- include('../templates/header.ejs'); %>
 
     <body>
+
         <div class="container-fluid dd">
-            <nav class="nav">
-                <div class="container">
-                    <div class="logo">
-                        <a href="/">Blood Bank</a>
-                    </div>
-                    <div id="mainListDiv" class="main_list">
-                        <ul class="navlinks">
-                            <li><a>Admin Panel</a></li>
-                        </ul>
-                    </div>
-                    <span class="navTrigger">
-                        <i></i>
-                        <i></i>
-                        <i></i>
-                    </span>
+            <nav style="margin-bottom:0;" class="navbar navbar-expand-lg navbar-dark bg-trans">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+                    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                    <a style="width: 1%;" href="/Notif"><img style="width: 100%;"
+                            src="../../images/notification.png"></a>
+                    <img style="width: 1%;margin-left: 2%;" src="../../images/user.svg">
+                    <p class="nav-item nav-link">User Name</p>
+                    <a style="width:1% ;" href="/"><img style="width: 150%;" src="../../images/log-out.png"></a>
+
                 </div>
             </nav>
             <div class="container btns">
-                <div class="col-4 col-md-12 offset-md-4 pt-3">
-                    <a href="/Admin/DON" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-                            src="images/bloodPoint.png"><span class="req">Donation
+                <div class="col-4 col-md-12 offset-md-4">
+                    <a href="/Admin/DON" class="req btn btn-request btn-circle btn-circle-xl m-1"><img
+                            style="width: 30%;" src="../../images/bloodPoint.png"><span class="req">Donation
                             Orders</span></a>
-                </div>
-    
-                <div class="col-4 col-md-12 offset-md-4  pt-3">
-                    <a href="/Admin/Inventory" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-                            src="images/storage.png"><span class="req">Inventory</span></a>
                 </div>
 
                 <div class="col-4 col-md-12 offset-md-4  pt-3">
-                    <a href="/Admin/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img style="width: 30%;"
-                            src="images/blood-test.png"><span class="req">Test Results</span></a>
+                    <a href="/Admin/Inventory" class="req btn btn-request btn-circle btn-circle-xl m-1"><img
+                            style="width: 30%;" src="../../images/storage.png"><span class="req">Inventory</span></a>
                 </div>
-    
+
+                <div class="col-4 col-md-12 offset-md-4  pt-3">
+                    <a href="/Admin/Tests" class="req btn btn-request btn-circle btn-circle-xl m-1"><img
+                            style="width: 30%;" src="images/blood-test.png"><span class="req">Test Results</span></a>
+                </div>
+
             </div>
         </div>
 
-        
+
 
     </body>
     <%- include('../templates/footer.ejs'); %>
