@@ -24,4 +24,9 @@ router.get('/Inventory', function(req, res, next) {
   res.render('pages/Inventory',{title:"Blood Bank",css1:"home",css2:"style",css3:"",scrp:"home"})
 });
 
+router.get('/Branches', function(req, res, next) {
+  res.render('pages/Branches',{title:"Blood Bank",css1:"home",css2:"Preq",css3:"reg",scrp:"home"})
+});
+
+
 module.exports = router;

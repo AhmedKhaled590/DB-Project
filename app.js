@@ -14,6 +14,7 @@ var PReqRouter = require('./routes/PReq');
 var MainRouter = require('./routes/Main');
 var NotifRouter = require('./routes/Notif');
 var DoctorRouter = require('./routes/DoctorsTests');
+var ItRouter = require('./routes/It');
 
 var app = express();
 
@@ -37,6 +38,7 @@ app.use('/PReq', PReqRouter);
 app.use('/Notif', NotifRouter);
 app.use('/', MainRouter);
 app.use('/DoctorTests', DoctorRouter);
+app.use('/It', ItRouter);
 
 
 
