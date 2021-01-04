@@ -17,7 +17,7 @@
                 <a style="width: 1%;" href="/Notif"><img style="width: 100%;"
                         src="../../images/notification.png"></a>
                 <img style="width: 1%;margin-left: 2%;" src="../../images/user.svg">
-                <p class="nav-item nav-link">User Name</p>
+                <p class="nav-item nav-link"><%=UserName%></p>
                 <a style="width:1% ;" href="/"><img style="width: 150%;" src="../../images/log-out.png"></a>
 
             </div>
@@ -32,30 +32,15 @@
                     <td class="hd">Date</td>
                     <td class="hd">Confirmation</td>
                 </tr>
-
+                <%Donations.forEach(row=>{%>
                 <tr>
-                    <td  scope="row">1</td>
-                    <td>Ahmed Gamal</td>
-                    <td>A+</td>
+                    <td  scope="row"><%=row.Sample_ID%></td>
+                    <td><%=row.SSN%></td>
+                    <td><%=row.Blood_Type%></td>
                     <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></td>
+                    <td><a href = "/Admin/Tests"><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></a></td>
                 </tr>
-
-                <tr>
-                    <td  scope="row">2</td>
-                    <td>Ahmed Mahmoud</td>
-                    <td>A+</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></td>
-                </tr>
-
-                <tr>
-                    <td  scope="row">3</td>
-                    <td>Omar Mohamed</td>
-                    <td>A+</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></td>
-                </tr>
+                <% });%>
             </tbody>
         </table>
 

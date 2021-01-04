@@ -1,13 +1,27 @@
 var express = require('express');
+const { rows } = require('mssql');
 var router = express.Router();
+var db = require('../DB/DatabaseConfig');
 
 
 router.get('/', function(req, res, next) {
-  res.render('pages/Admin_MAIN',{title:"Blood Bank",css1:"home",css2:"Preq",css3:"animate",scrp:"home"})
+  db.each('SELECT fname FROM donor where logged =0',function(err, row){
+    res.render('pages/Admin_MAIN',{title:"Blood Bank",css1:"home",css2:"Preq",css3:"animate",scrp:"home",UserName:row.Fname})
+  });
+
 });
 
+
 router.get('/Don', function(req, res, next) {
-  res.render('pages/Admin_DON',{title:"Blood Bank",css1:"home",css2:"style",css3:"animate",scrp:"home"})
+  var User;
+  db.each('SELECT fname FROM donor where logged =0',function(err, user){
+    if(err)throw err;
+    User  = user;
+  });
+    db.all('SELECT*from don_record R,DONOR D WHERE D.SSN = R.SSN',function(err, rows){
+      console.log(rows);
+    res.render('pages/Admin_DON',{title:"Blood Bank",css1:"home",css2:"style",css3:"animate",scrp:"home",Donations:rows,UserName:User.Fname})
+});
 });
 
 
