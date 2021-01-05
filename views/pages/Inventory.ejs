@@ -1,4 +1,6 @@
 <%- include('../templates/header.ejs'); %>
+<script src="../../routes/Admin.js"></script>
+<script src="jquery-3.5.1.min.js"></script>
 
 <body>
     <div class="container-fluid dd">
@@ -21,12 +23,6 @@
         </nav>
         <table style="display: none;" class="table table-bordered  table-bg">
             <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Inventory</h1>
-            <select class="select email" name="Type" id="">
-                <option value="Male">Sort By</option>
-                <option value="Male">ID </option>
-                <option value="Male">Name </option>
-                <option value="Male">Date </option>
-            </select>
             <tbody>
                 <tr>
                     <td class="hd" scope="row">Sample ID</td>
@@ -35,45 +31,31 @@
                     <td class="hd">Date Of Donation</td>
                 </tr>
 
+
+                <%Inventory.forEach(row=>{%>
                 <tr>
-                    <td  scope="row">1</td>
-                    <td>Ahmed Gamal</td>
-                    <td>A+</td>
-                    <td>2020-12-18</td>
+                    <td  scope="row"><%=row.Sample_ID%></td>
+                    <td><%=row.Fname%></td>
+                    <td><%=row.Blood_Type%></td>
+                    <td><%=row.DONATION_DATE%></td>
                 </tr>
-
-                <tr>
-                    <td  scope="row">2</td>
-                    <td>Ahmed Mahmoud</td>
-                    <td>A+</td>
-                    
-                    <td>2020-12-18</td>
-            
-
-                </tr>
-
-                <tr>
-                    <td  scope="row">3</td>
-                    <td>Omar Mohamed</td>
-                    <td>A+</td>
-                    <td>2020-12-18</td>
-                   
-
-                </tr>
-
-                <tr>
-                    <td  scope="row">4</td>
-                    <td>Cairo Hospital</td>
-                    <td>A-</td>
-                    <td>2020-12-18</td>
-                
-                </tr>
+                <%});%>
             </tbody>
         </table>
+        <table style="display: none;" class="table table-bordered  table-bg">
+            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Statistics</h1>
+            <tbody>
+                <tr>
+                    <td class="hd" scope="row">Number Of Donations</td>
+                    <td scope="row"><%=numdon%></td>
+                </tr>
 
-
+                <tr>
+                    <td class="hd" scope="row">Number Of A+ Samples</td>
+                    <td scope="row"><%=numaa%></td>
+                </tr>
     </div>
-
+<button id="numdon"></button>
 
 </body>
 <%- include('../templates/footer.ejs'); %>
