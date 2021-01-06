@@ -10,8 +10,6 @@ db.each('SELECT fname FROM donor where logged =1', function (err, user) {
   User = user;
 });
 
-var sample
-
 
 router.get('/', function (req, res, next) {
   db.all('SELECT*from Donation_To_Add', [], (err, Records) => {
