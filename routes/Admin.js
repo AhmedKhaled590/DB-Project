@@ -47,6 +47,7 @@ router.get('/DonRecords', function (req, res, next) {
     })
   })
 
+  var sample;
   db.all('SELECT blood_type, COUNT(*) as n FROM INVENTORY group by blood_type', function (err, rows) {
     sample = rows;
   });
