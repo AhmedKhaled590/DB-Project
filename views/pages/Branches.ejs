@@ -56,7 +56,12 @@
                     data-toggle="modal" data-target="#Remove" data-whatever="@mdo">Remove Branch</button>
 
                 <button style="width: 50%; margin-left: 25%; margin-top:1%" type="button" class="btn btn-danger"
-                    data-toggle="modal" data-target="#GetEmployee" data-whatever="@mdo">Get Employees In Specific Branch</button>
+                    data-toggle="modal" data-target="#GetEmployee" data-whatever="@mdo">Get Employees In Specific
+                    Branch</button>
+
+                <button style="width: 50%; margin-left: 25%; margin-top:1%" type="button" class="btn btn-danger"
+                    data-toggle="modal" data-target="#GetDoctors" data-whatever="@mdo">Get Doctors In Specific
+                    Branch</button>
             </form>
 
         </div>
@@ -126,6 +131,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade" id="GetEmployee" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -154,7 +160,36 @@
 
                 </div>
             </div>
+        </div>
 
+        
+        <div class="modal fade" id="GetDoctors" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Get Doctors In Specific Branch</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/Admin/Branches" method="POST">
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Branch ID</label>
+                            <input name="BranchIDDr" style="border: 1px solid rgba(77, 76, 76, 0.357);"
+                                type="text" class="form-control" id="Location">
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Get Doctors</button>
+                </div>
+                </form>
+
+
+            </div>
         </div>
 
     </body>

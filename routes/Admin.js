@@ -78,15 +78,16 @@ router.get('/Tests', function (req, res, next) {
 router.post('/Tests', function (req, res, next) {
   var SSN = req.body.SSN;
   var Don_date = req.body.DONDATE;
-
-  db.all('update Donation_requests set DETERMINED_DATE = ? WHERE SSN = ?', [Don_date, SSN], function (err) {
-    if (err) console.log(err);
-    else {
-      db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN and q.test_result="QUEUED"', [], function (err, rows) {
-        res.render('pages/TestRes', { title: "Blood Bank", css1: "home", css2: "style", css3: "animate", scrp: "home", UserName: User.Fname, res: rows })
-      });
-    }
-
+  db.all(' UPDATE DONOR SET Notification = "Your Donation date is Set" WHERE SSN  = ? ', [SSN], (er) => {
+    if(er)console.log(er);
+    db.all('update Donation_requests set DETERMINED_DATE = ? WHERE SSN = ?', [Don_date, SSN], function (err) {
+      if (err) console.log(err);
+      else {
+        db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN and q.test_result="QUEUED"', [], function (err, rows) {
+          res.render('pages/TestRes', { title: "Blood Bank", css1: "home", css2: "style", css3: "animate", scrp: "home", UserName: User.Fname, res: rows })
+        });
+      }
+    });
   })
 });
 
@@ -120,8 +121,11 @@ router.post('/Branches', function (req, res, next) {
   var PhoneNum = req.body.PhoneNum;
   var BranchID = req.body.BranchID;
   var BranchIDEmp = req.body.BranchIDEmp;
-  var SSNEmp = req.body.SSNEmp;
-  var Salary = req.body.Salary;
+  var BranchIDDr = req.body.BranchIDDr;
+  var SSNEmp = req.body.SSNEmployees;
+  var Salary = req.body.SalaryEmployees;
+  var SSNDR = req.body.SSNDoctors;
+  var SalaryDR = req.body.SalaryDoctors;
   if (Location != undefined && PhoneNum != undefined) {
     db.all('Insert Into Branch (Location,Phone_Num) values (?,?)', [Location, PhoneNum], function (err) {
       if (err) console.log(err);
@@ -141,23 +145,35 @@ router.post('/Branches', function (req, res, next) {
     });
   }
 
-  else if(BranchIDEmp!=undefined)
-  {
-    db.all('Select*from Employee Where Branch_ID = ?',[BranchIDEmp],(err,rows)=>{
-      res.render('pages/Employees',{title: "Blood Bank", css1: "home", css2: "Preq", css3: "reg", scrp: "home",UserName:User.Fname,Emps:rows} )
+  else if (BranchIDEmp != undefined) {
+    db.all('Select*from Employee Where Branch_ID = ?', [BranchIDEmp], (err, rows) => {
+      res.render('pages/Employees', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "reg", scrp: "home", UserName: User.Fname, Emps: rows, h: 'Employees' })
     })
   }
-  else if(SSNEmp!=undefined)
-  {
-    db.all('UPDATE EMPLOYEE SET SALARY = ? WHERE SSN = ?',[Salary,SSNEmp],(err)=>{
+  else if (SSNEmp != undefined) {
+    db.all('UPDATE EMPLOYEE SET SALARY = ? WHERE SSN = ?', [Salary, SSNEmp], (err) => {
       db.all('SELECT*FROM BRANCH', [], function (err, branches) {
         res.render('pages/Branches', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "reg", scrp: "home", Branch: branches })
       });
     })
   }
+  else if (SSNDR != undefined) {
+    db.all('UPDATE Doctor SET SALARY = ? WHERE SSN = ?', [SalaryDR, SSNDR], (err) => {
+      db.all('SELECT*FROM BRANCH', [], function (err, branches) {
+        res.render('pages/Branches', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "reg", scrp: "home", Branch: branches })
+      });
+    })
+  }
+  else if (BranchIDDr != undefined) {
+    db.all('Select*from Doctor Where Branch_ID = ?', [BranchIDDr], (err, rows) => {
+      console.log(rows);
+      res.render('pages/Employees', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "reg", scrp: "home", UserName: User.Fname, Emps: rows, h: 'Doctors' })
+    });
+  }
+
+
 
 });
-
 
 
 

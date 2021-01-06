@@ -25,7 +25,7 @@
                 </div>
             </nav>
             <table style="display: none;" class="table table-bordered  table-bg">
-                <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Employees</h1>
+                <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;"><%=h%></h1>
                 <tbody>
                     <tr>
                         <td class="hd">SSN</td>
@@ -63,7 +63,7 @@
 
             <form action="">
                 <button style="width: 50%; margin-left: 25%;" type="button" class="btn btn-danger" data-toggle="modal"
-                    data-target="#Salary" data-whatever="@mdo">Change Salary Of Specific Employee</button>
+                    data-target="#Salary" data-whatever="@mdo">Change Salary Of Specific <%=h%></button>
             </form>
 </div>
             <div class="modal fade" id="Salary" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -80,11 +80,11 @@
                         <form action="/Admin/Branches" method="POST">
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">SSN</label>
-                                <input name="SSNEmp" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
+                                <input name="SSN<%=h%>" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
                                     class="form-control" id="Location">
 
                                     <label for="recipient-name" class="col-form-label">Salary</label>
-                                    <input name="Salary" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
+                                    <input name="Salary<%=h%>" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
                                         class="form-control" id="Location">
                             </div>
                            
