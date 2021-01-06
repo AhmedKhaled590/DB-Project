@@ -11,7 +11,7 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="/Admin">Home <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <a style="width: 1%;" href="/Notif"><img style="width: 100%;"
@@ -23,7 +23,7 @@
             </div>
         </nav>
         <table style="display: none;" class="table table-bordered  table-bg">
-            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Requests</h1>
+            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Requests Total (<%=total.n%>)</h1>
             <tbody>
                 <tr>
                     <td class="hd" scope="row">ID</td>
@@ -33,8 +33,8 @@
                 </tr>
                 <%Donations.forEach(row=>{%>
                 <tr>
-                    <td  scope="row"><%=row.Sample_ID%></td>
-                    <td><%=row.SSN%></td>
+                    <td  scope="row"><%=row.ID%></td>
+                    <td><%=row.Fname%></td>
                     <td><%=row.Blood_Type%></td>
                     <td><a href = "/Admin/Tests"><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></a></td>
                 </tr>
