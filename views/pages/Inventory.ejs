@@ -50,49 +50,7 @@
                         <%});%>
                 </tbody>
             </table>
-            <table style="display: none;" class="table table-bordered  table-bg">
-                <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Statistics</h1>
-                <tbody>
-                    <tr>
-                        <td class="hd" scope="row">Number Of Donations</td>
-                        <td scope="row">
-                            <%=numdon%>
-                        </td>
-                    </tr>
-
-                    <%samples.forEach(sample=>{%>
-                        <tr>
-                            <td class="hd" scope="row">Number Of <%=sample.Blood_Type%> Samples</td>
-                            <td scope="row">
-                                <%=sample.n%>
-                            </td>
-                        </tr>
-                        <%})%>
-                </tbody>
-            </table>
-            <table style="display: none;" class="table table-bordered  table-bg">
-                <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Most Donor</h1>
-                <tbody>
-
-                    <tr>
-                        <td class="hd" scope="row">
-                            SSN
-                        </td>
-                        <td class="hd" scope="row">
-                            Fname
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td scope="row">
-                            <%=donor.SSN%>
-                        </td>
-                        <td scope="row">
-                            <%=donor.Fname%>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>>
+         
         </div>
         <button id="numdon"></button>
 
