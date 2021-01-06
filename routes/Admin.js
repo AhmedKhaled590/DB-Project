@@ -10,7 +10,7 @@ db.each('SELECT fname FROM donor where logged =1', function (err, user) {
   User = user;
 });
 
-
+var sample
 
 
 router.get('/', function (req, res, next) {
