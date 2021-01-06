@@ -23,20 +23,20 @@
             </div>
         </nav>
         <table style="display: none;" class="table table-bordered  table-bg">
-            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Requests</h1>
+            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Records</h1>
             <tbody>
                 <tr>
-                    <td class="hd" scope="row">ID</td>
+                    <td class="hd">SSN</td>
                     <td class="hd">Name</td>
                     <td class="hd">Blood Group</td>
-                    <td class="hd">Confirmation</td>
+                    <td class="hd">Number Of Donations</td>                    
                 </tr>
                 <%Donations.forEach(row=>{%>
                 <tr>
-                    <td  scope="row"><%=row.Sample_ID%></td>
-                    <td><%=row.SSN%></td>
+                    <td  scope="row"><%=row.SSN%></td>
+                    <td><%=row.Fname%></td>
                     <td><%=row.Blood_Type%></td>
-                    <td><a href = "/Admin/Tests"><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Confirm</button></a></td>
+                    <td><%=row.n%></td>
                 </tr>
                 <% });%>
             </tbody>

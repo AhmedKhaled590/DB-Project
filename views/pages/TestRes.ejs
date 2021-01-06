@@ -16,7 +16,7 @@
           </ul>
           <a style="width: 1%;" href="/Notif"><img style="width: 100%;" src="../../images/notification.png"></a>
           <img style="width: 1%;margin-left: 2%;" src="../../images/user.svg">
-          <p class="nav-item nav-link">User Name</p>
+          <p class="nav-item nav-link"><%=UserName%></p>
           <a style="width:1% ;" href="/"><img style="width: 150%;" src="../../images/log-out.png"></a>
 
         </div>
@@ -25,7 +25,7 @@
         <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Test Results</h1>
         <tbody>
           <tr>
-            <td class="hd" scope="row">Order ID</td>
+            <td class="hd" scope="row">SSN</td>
             <td class="hd">Name</td>
             <td class="hd">Doctor Name</td>
             <td class="hd">Blood Group</td>
@@ -34,43 +34,21 @@
           </tr>
 
           <tr>
-            <td scope="row">1</td>
-            <td>Ahmed Gamal</td>
-            <td>Ahmed Gamal</td>
-            <td>A+</td>
-            <td>Confirmed</td>
+            <%res.forEach(row=>{%>
+            <td scope="row"><%=row.SSN%></td>
+            <td><%=row.Fname%></td>
+            <td><%=row.drname%></td>
+            <td><%=row.Blood_Type%></td>
+            <td><%=row.TEST_RESULT%></td>
             <td>
               <button style="width: 80%;font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
                 data-target="#exampleModal" data-whatever="@mdo">Set an appointement</button>
             </td>
 
           </tr>
+        <%})%>
 
-          <tr>
-            <td scope="row">2</td>
-            <td>Ahmed Mahmoud</td>
-            <td>Ahmed Mahmoud</td>
-            <td>A+</td>
-            <td>In Queue</td>
-            <td>
-              <button style="width: 80%;font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
-                data-target="#exampleModal" data-whatever="@mdo">Set an appointement</button>
-            </td>
-
-          </tr>
-
-          <tr>
-            <td scope="row">3</td>
-            <td>Omar Mohamed</td>
-            <td>Omar Mohamed</td>
-            <td>A+</td>
-            <td>In Queue</td>
-            <td>
-              <button style="width: 80%;font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
-                data-target="#exampleModal" data-whatever="@mdo">Set an appointement</button>
-            </td>
-
-          </tr>
+         
         </tbody>
       </table>
 
@@ -89,23 +67,23 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
+            <form action="/Admin/Tests" method="POST">
               <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Order ID</label>
-                <input style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text" class="form-control"
+                <label for="recipient-name" class="col-form-label">SSN</label>
+                <input name="SSN" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text" class="form-control"
                   id="Location">
               </div>
 
 
               <div class="form-group">
                 <label for="recipient-name" class="col-form-label">date</label>
-                <input style="border: 1px solid rgba(77, 76, 76, 0.357);" type="date" class="form-control"
+                <input name="DONDATE" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="date" class="form-control"
                   id="Location">
               </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-danger" >Set</button>
+            <button  type="submit" class="btn btn-danger" >Set</button>
           </div>
           </form>
 
