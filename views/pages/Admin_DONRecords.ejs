@@ -26,6 +26,7 @@
             <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Records</h1>
             <tbody>
                 <tr>
+                    <td class="hd">Sample ID</td>
                     <td class="hd">SSN</td>
                     <td class="hd">Name</td>
                     <td class="hd">Blood Group</td>
@@ -33,6 +34,7 @@
                 </tr>
                 <%Donations.forEach(row=>{%>
                 <tr>
+                    <td><%=row.Sample_ID%></td>
                     <td  scope="row"><%=row.SSN%></td>
                     <td><%=row.Fname%></td>
                     <td><%=row.Blood_Type%></td>
