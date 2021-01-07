@@ -59,7 +59,15 @@ router.post('/', function (req, res, next) {
         res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: firstName + " " + lastName })
       })
   }
+  else if(req.body.UserType === "Organization"){
+    console.log("wselt");
+    const {OrganizationName,email,password,PhoneNo,Gov,Address}=req.body;
+    db.all(`INSERT INTO ORGANIZATIONS(O_name,Email,Pass_word,Phone_Num,Location,logged)
+            VALUES(?,?,?,?,?,1)`,[OrganizationName,email,password,PhoneNo,Gov+''+Address],
+            (err)=>{
+              if(err) return console.log(err);
+              res.render('pages/Home',{ title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: OrganizationName })
+            })
+  }
 });
-
-
 module.exports = router;
