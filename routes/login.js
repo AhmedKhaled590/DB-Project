@@ -27,6 +27,7 @@ router.post('/', function (req, res, next) {
           res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: record.Fname + " " + record.Lname });
         })
       }
+      else return res.send("Enter a correct Email and Password!");
     })
   }
   else if (req.body.UserType === "Recipient") {
@@ -41,6 +42,7 @@ router.post('/', function (req, res, next) {
           res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: record.Fname + " " + record.Lname });
         })
       }
+      else return res.send("Enter a correct Email and Password!");
     })
   }
   else if (req.body.UserType === "Organization") {
@@ -55,9 +57,9 @@ router.post('/', function (req, res, next) {
           res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: record.O_name });
         })
       }
+      else return res.send("Enter a correct Email and Password!");
     })
   }
-  else return res.send("Enter correct Email and Password!");
 })
 
 /*router.post('/', function (req, res, next) {
