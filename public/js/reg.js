@@ -1,7 +1,7 @@
 
 function UserChanged() {
     var UserType = document.getElementById("user");
-    if (UserType.value == "Doner"||UserType.value=="Recipient") {
+    if (UserType.value == "Donor"||UserType.value=="Recipient") {
         $("#organization").hide(1000,()=>{
             $("#person").show(1000);
         });
