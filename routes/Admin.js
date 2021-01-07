@@ -11,8 +11,6 @@ db.each('SELECT fname FROM donor where logged =1', function (err, user) {
 });
 
 
-
-
 router.get('/', function (req, res, next) {
   db.all('SELECT*from Donation_To_Add', [], (err, Records) => {
     Records.forEach(Record => {
