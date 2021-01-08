@@ -12,21 +12,14 @@ db.each('SELECT fname FROM donor where logged =1', function (err, user) {
 
 
 router.get('/', function (req, res, next) {
-  db.all('SELECT*from Donation_To_Add', [], (err, Records) => {
-    Records.forEach(Record => {
-      db.all('Insert Into DON_RECORD (SSN,DONATION_DATE,REQUEST_ID) VALUES (?,?,?);', [Record.SSN, Record.DETERMINED_DATE, Record.ID], (err => {
-        db.all('UPDATE DONATION_REQUESTs SET TEST_RESULT ="FINISHED" WHERE ID = ?', [Record.ID]);
-      }));
-    });
     res.render('pages/Admin_MAIN', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: User.Fname })
 
-  });
 });
 
 
 var tot;
 router.get('/Don', function (req, res, next) {
-  db.all('SELECT *from Donation_requests R,DONOR D WHERE D.SSN = R.SSN AND r.test_result="QUEUED" ', function (err, rows) {
+  db.all('SELECT *from Donation_requests R,DONOR D WHERE D.SSN = R.SSN AND (r.test_result!="REJECTED" or r.test_result!="FINISHED") ', function (err, rows) {
 
     db.all('SELECT COUNT(*) AS n FROM DONATION_REQUESTS r where r.test_result="QUEUED" ', [], (err, t) => {
       t.forEach(r => {
@@ -40,7 +33,7 @@ router.get('/Don', function (req, res, next) {
 
 router.get('/DonRecords', function (req, res, next) {
   var NumberOfDonations;
-  db.all('SELECT COUNT(*) as n FROM INVENTORY', function (err, num) {
+  db.all('SELECT COUNT(*) as n FROM DON_RECORD', function (err, num) {
     num.forEach(nd => {
       console.log(nd.n);
       NumberOfDonations = nd.n;
@@ -48,7 +41,7 @@ router.get('/DonRecords', function (req, res, next) {
   })
 
   var sample;
-  db.all('SELECT blood_type, COUNT(*) as n FROM INVENTORY group by blood_type', function (err, rows) {
+  db.all('SELECT blood_type, COUNT(*) as n FROM DON_RECORD R,DONOR D WHERE R.SSN=D.SSN group by blood_type', function (err, rows) {
     sample = rows;
   });
 
@@ -67,7 +60,7 @@ router.get('/DonRecords', function (req, res, next) {
 
 
 router.get('/Tests', function (req, res, next) {
-  db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN anD q.test_result="CONFIRMED"', [], function (err, rows) {
+  db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN anD q.test_result="CONFIRMED" and q.DETERMINED_DATE==""', [], function (err, rows) {
     res.render('pages/TestRes', { title: "Blood Bank", css1: "home", css2: "style", css3: "animate", scrp: "home", UserName: User.Fname, res: rows })
   });
 });
@@ -82,7 +75,7 @@ router.post('/Tests', function (req, res, next) {
     db.all('update Donation_requests set DETERMINED_DATE = ? WHERE SSN = ?', [Don_date, SSN], function (err) {
       if (err) console.log(err);
       else {
-        db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN and q.test_result="QUEUED"', [], function (err, rows) {
+        db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN and q.test_result="CONFIRMED" and q.DETERMINED_DATE==""', [], function (err, rows) {
           res.render('pages/TestRes', { title: "Blood Bank", css1: "home", css2: "style", css3: "animate", scrp: "home", UserName: User.Fname, res: rows })
         });
       }
