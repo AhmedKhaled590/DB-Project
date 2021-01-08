@@ -74,26 +74,26 @@
           <tr>
             <td class="hd" scope="row">A+</td>
             <td class="hd">A-</td>
-            <td class="hd">B+</td>
-            <td class="hd">B-</td>
-          </tr>
-          <tr>
-            <td scope="row">32</td>
-            <td>20</td>
-            <td>30</td>
-            <td>14</td>
-          </tr>
-          <tr>
-            <td class="hd" scope="row">O+</td>
-            <td class="hd">O-</td>
             <td class="hd">AB+</td>
             <td class="hd">AB-</td>
           </tr>
           <tr>
-            <td scope="row">41</td>
-            <td>18</td>
-            <td>34</td>
-            <td>10</td>
+            <td scope="row"><%= (typeof countApos !== 'undefined') ? countApos : 0 %></td>
+            <td><%= (typeof countAneg !== 'undefined') ? countAneg : '0' %></td>
+            <td><%= (typeof countABpos !== 'undefined') ? countABpos : '0' %></td>
+            <td><%= (typeof countABneg !== 'undefined') ? countABneg : '0' %></td>
+          </tr>
+          <tr>
+            <td class="hd" scope="row">B+</td>
+            <td class="hd">B-</td>
+            <td class="hd">O+</td>
+            <td class="hd">O-</td>
+          </tr>
+          <tr>
+            <td scope="row"><%= (typeof countBpos !== 'undefined') ? countBpos : '0' %></td>
+            <td><%= (typeof countBneg !== 'undefined') ? countBneg : '0' %></td>
+            <td><%= (typeof countOpos !== 'undefined') ? countOpos : '0' %></td>
+            <td><%= (typeof countOneg !== 'undefined') ? countOneg : '0' %></td>
           </tr>
         </tbody>
       </table>
