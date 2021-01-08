@@ -1,90 +1,151 @@
 <%- include('../templates/header.ejs'); %>
 
-<body>
-    <div class="container-fluid dd">
-        <nav class="nav">
-            <div class="container">
-                <div class="logo">
-                    <a href="/">Blood Bank</a>
+    <body>
+        <div class="container-fluid dd">
+            <nav class="nav">
+                <div class="container">
+                    <div class="logo">
+                        <a href="/">Blood Bank</a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a>Admin Panel</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
                 </div>
-                <div id="mainListDiv" class="main_list">
-                    <ul class="navlinks">
-                        <li><a>Admin Panel</a></li>
-                    </ul>
+            </nav>
+            <table style="display: none;" class="table table-bordered  table-bg">
+                <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Orders</h1>
+                <tbody>
+                    <tr>
+                        <td class="hd" scope="row">Order ID</td>
+                        <td class="hd">Name</td>
+                        <td class="hd">Blood Group</td>
+                        <td class="hd">Required Amount</td>
+                        <td class="hd">Date Of Request</td>
+                        <td class="hd">Check availibility</td>
+                        <td class="hd">Response</td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">1</td>
+                        <td>Ahmed Gamal</td>
+                        <td>A+</td>
+                        <td>10</td>
+                        <td>--</td>
+                        <td> <button style=" font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Check" data-whatever="@mdo">Check</button></td>
+                        <td> <button style="font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Confirm" data-whatever="@mdo">Response</button></td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Ahmed Mahmoud</td>
+                        <td>A+</td>
+                        <td>10</td>
+                        <td>--</td>
+                        <td> <button style=" font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Check" data-whatever="@mdo">Check</button></td>
+                        <td> <button style="font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Confirm" data-whatever="@mdo">Response</button></td>
+
+                    </tr>
+
+                    <tr>
+                        <td scope="row">3</td>
+                        <td>Omar Mohamed</td>
+                        <td>A+</td>
+                        <td>10</td>
+                        <td>--</td>
+                        <td> <button style=" font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Check" data-whatever="@mdo">Check</button></td>
+                        <td> <button style="font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Confirm" data-whatever="@mdo">Response</button></td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">4</td>
+                        <td>Cairo Hospital</td>
+                        <td>A-</td>
+                        <td>100</td>
+                        <td>--</td>
+                        <td> <button style=" font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Check" data-whatever="@mdo">Check</button></td>
+                        <td> <button style="font-size: 30px;" type="button" class="btn btn-danger" data-toggle="modal"
+                                data-target="#Confirm" data-whatever="@mdo">Response</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" id="Check" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Check availability of Blood Amount</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/Admin/Orders" method="POST">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">OrderId</label>
+                                <input name="OrderId" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
+                                    class="form-control" id="Location">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Check</button>
+                    </div>
+                    </form>
+
+
                 </div>
-                <span class="navTrigger">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                </span>
             </div>
-        </nav>
-        <table style="display: none;" class="table table-bordered  table-bg">
-            <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Donations Requests</h1>
-            <select class="select email" name="Type" id="">
-                <option value="Male">All</option>
-                <option value="Male">Patients </option>
-                <option value="Female">Organizations</option>
-            </select>
-            <tbody>
-                <tr>
-                    <td class="hd" scope="row">Order ID</td>
-                    <td class="hd">Name</td>
-                    <td class="hd">Blood Group</td>
-                    <td class="hd">Required Amount</td>
-                    <td class="hd">Date Of Request</td>
-                    <td class="hd">Check availibility</td>
-                    <td class="hd">Response</td>
-                </tr>
+        </div>
 
-                <tr>
-                    <td  scope="row">1</td>
-                    <td>Ahmed Gamal</td>
-                    <td>A+</td>
-                    <td>10</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Check</button></td>
-                    <td><button style="width: 60%;font-size: 25px;" class="btn btn-danger ">Confirm</button></td>
-                </tr>
+        <div class="modal fade" id="Confirm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Response to Order</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/Admin/Orders" method="POST">
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">OrderId</label>
+                                <input name="OrderIdRes" style="border: 1px solid rgba(77, 76, 76, 0.357);" type="text"
+                                    class="form-control" id="Location">
+                            </div>
 
-                <tr>
-                    <td  scope="row">2</td>
-                    <td>Ahmed Mahmoud</td>
-                    <td>A+</td>
-                    <td>10</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Check</button></td>
-                    <td><button style="width: 60%;font-size: 25px;" class="btn btn-danger ">Confirm</button></td>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Confirm</button>
+                        <button type="submit" class="btn btn-danger">Reject</button>
 
-                </tr>
-
-                <tr>
-                    <td  scope="row">3</td>
-                    <td>Omar Mohamed</td>
-                    <td>A+</td>
-                    <td>10</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Check</button></td>
-                    <td><button style="width: 60%;font-size: 25px;" class="btn btn-danger ">Confirm</button></td>
-
-                </tr>
-
-                <tr>
-                    <td  scope="row">4</td>
-                    <td>Cairo Hospital</td>
-                    <td>A-</td>
-                    <td>100</td>
-                    <td> <input type="date"></td>
-                    <td><button style="width: 50%;font-size: 30px;" class="btn btn-danger ">Check</button></td>
-                    <td><button style="width: 60%;font-size: 25px;" class="btn btn-danger ">Confirm</button></td>
-
-                </tr>
-            </tbody>
-        </table>
+                    </div>
+                    </form>
 
 
-    </div>
+                </div>
+            </div>
 
+        </div>
 
-</body>
-<%- include('../templates/footer.ejs'); %>
+    </body>
+    <%- include('../templates/footer.ejs'); %>
