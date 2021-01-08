@@ -60,6 +60,36 @@ router.post('/', function (req, res, next) {
       else return res.send("Enter a correct Email and Password!");
     })
   }
+  else if (req.body.UserType === "Doctor") {
+    console.log(req.body.UserType);
+    db.all(`SELECT * FROM DOCTOR WHERE Email=? AND pass_word=?`, [username, pass], (err, row) => {
+      if (err) return console.log(err);
+      user = row;
+      console.log(user[0]);
+      if (user[0] != undefined) {
+        db.all(`UPDATE DOCTOR SET logged=1 WHERE Email=? AND pass_word=?`, [username, pass]);
+        user.forEach(record => {
+          res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: record.Fname + " " + record.Lname });
+        })
+      }
+      else return res.send("Enter a correct Email and Password!");
+    })
+  }
+  else if (req.body.UserType === "Employee") {
+    console.log(req.body.UserType);
+    db.all(`SELECT * FROM EMPLOYEE WHERE Email=? AND pass_word=?`, [username, pass], (err, row) => {
+      if (err) return console.log(err);
+      user = row;
+      console.log(user[0]);
+      if (user[0] != undefined) {
+        db.all(`UPDATE EMPLOYEE SET logged=1 WHERE Email=? AND pass_word=?`, [username, pass]);
+        user.forEach(record => {
+          res.render('pages/Home', { title: "Blood Bank", css1: "home", css2: "Preq", css3: "animate", scrp: "home", UserName: record.Fname + " " + record.Lname });
+        })
+      }
+      else return res.send("Enter a correct Email and Password!");
+    })
+  }
 })
 
 /*router.post('/', function (req, res, next) {
