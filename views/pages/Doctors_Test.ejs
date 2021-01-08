@@ -32,6 +32,7 @@
                 <td class="hd">Age</td>
                 <td class="hd">Last Donation since</td>
                 <td class="hd">Last Visit to Dentist</td>
+                <td class="hd">Result</td>
             </tr>
 
             <tr>
@@ -41,7 +42,13 @@
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>
-              
+                <td scope="row">
+                  <select style="font-size: 20px;" name="" id="">
+                    <option value="InQueue">InQueue</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </td>
 
             </tr>
 
@@ -52,7 +59,13 @@
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>
-              
+                <td scope="row">
+                <select style="font-size: 20px;" name="" id="">
+                  <option value="InQueue">InQueue</option>
+                  <option value="Confirmed">Confirmed</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </td>
             </tr>
 
 
@@ -63,53 +76,24 @@
                 <td>--</td>
                 <td>--</td>
                 <td>--</td>
-              
+                <td scope="row">
+                  <select style="font-size: 20px;" name="" id="">
+                    <option value="InQueue">InQueue</option>
+                    <option value="Confirmed">Confirmed</option>
+                    <option value="Rejected">Rejected</option>
+                  </select>
+                </td>
             </tr>
         </tbody>
     </table>
 
     
-      <button style="width: 50%; margin-left: 25%; margin-top:1%" type="button" class="btn btn-danger"
-      data-toggle="modal" data-target="#DrTests" data-whatever="@mdo">Change Test Result</button>  
+    <form action="">
+      <input style="width: 50%; margin-left: 25%;" type="submit" value="Confirm">
+    </form>
+
 
     
-</div>
-
-<div class="modal fade" id="DrTests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Change Test Result</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <form action="/Admin/DoctorTests" method="POST">
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label">OrderId</label>
-                    <input name="OrderIdTest" style="border: 1px solid rgba(77, 76, 76, 0.357); color: black" type="text"
-                        class="form-control" id="Location">
-                </div>
-                <div class="form-group">
-                    <label for="message-text" class="col-form-label">Result</label>
-                    <select style="border:1px solid rgba(77, 76, 76, 0.357); color: black;" onchange="UserChanged()" class="select email" name="Res" id="user">
-                      <option value="NULL">Result</option>
-                      <option value="CONFIRMED">CONFIRMED</option>
-                      <option value="REJECTED">REJECTED</option>
-                    </select>
-                </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-danger">Confirm</button>
-        </div>
-        </form>
-
-
-    </div>
-</div>
 </div>
 
     <!-- //main -->

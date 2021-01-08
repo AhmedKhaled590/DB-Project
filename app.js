@@ -8,6 +8,9 @@ var loginRouter = require('./routes/login');
 var RegRouter = require('./routes/Register');
 var adminRouter = require('./routes/Admin');
 var donateRouter = require('./routes/Donate');
+
+var TestRes_DON_Router = require('./routes/TestRes_DON')
+
 var HomeRouter = require('./routes/Home');
 var HReqRouter = require('./routes/HReq');
 var PReqRouter = require('./routes/PReq');
@@ -15,7 +18,7 @@ var MainRouter = require('./routes/Main');
 var NotifRouter = require('./routes/Notif');
 var DoctorRouter = require('./routes/DoctorsTests');
 var ItRouter = require('./routes/It');
-
+ 
 var app = express();
 
 // view engine setup
@@ -38,6 +41,9 @@ app.use('/PReq', PReqRouter);
 app.use('/Notif', NotifRouter);
 app.use('/', MainRouter);
 app.use('/DoctorTests', DoctorRouter);
+
+app.use('/TestRes_DON',TestRes_DON_Router) ; 
+
 app.use('/It', ItRouter);
 
 

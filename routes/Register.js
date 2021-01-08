@@ -1,10 +1,9 @@
   
 var express = require('express');
-const { rows } = require('mssql');
 var router = express.Router();
-var db = require('../DB/DatabaseConfig');
 
-var User
+const { rows } = require('mssql');
+var db = require('../DB/DatabaseConfig');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {

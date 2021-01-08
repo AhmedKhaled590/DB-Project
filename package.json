@@ -10,9 +10,23 @@
     "debug": "~2.6.9",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "express-validator": "^6.9.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
-    "mssql": "^6.3.0",
+    "mssql": "^6.3.1",
+    "nodemon": "^2.0.7",
     "sqlite3": "^5.0.0"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmedKhaled590/DB-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmedKhaled590/DB-Project/issues"
+  },
+  "homepage": "https://github.com/AhmedKhaled590/DB-Project#readme",
+  "description": ""
 }
