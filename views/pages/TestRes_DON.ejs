@@ -24,45 +24,29 @@
             <table style="display: none;" class="table table-bordered  table-bg">
                 <h1 style="color: white; text-align: center; margin-top: 30px; font-size: 50px;">Test Results</h1>
                 <tbody>
+                    <!-- header Row  -->
                     <tr>
                         <td class="hd" scope="row">Order ID</td>
                         <td class="hd">Name</td>
-                        <td class="hd">Doctor Name</td>
                         <td class="hd">Blood Group</td>
                         <td class="hd">Final Result</td>
                     </tr>
 
-                    <tr>
-                        <td scope="row">1</td>
-                        <td>Ahmed Gamal</td>
-                        <td>Ahmed Gamal</td>
-                        <td>A+</td>
-                        <td>Confirmed</td>
-                    </tr>
+                    <!-- loop on the data and display them  -->
+                    <%   data.forEach((row) => { %>
+                        <tr>
+                          <td scope="row"><%= row.ID %> </td>              <!--  ID           -->
+                          <td><%= row.Fname +" " +row.Lname  %> </td>      <!--  donor Name   -->
+                          <td><%=  row.Blood_Type %></td>                  <!--  Blood Type   -->
+                          <td><%= row.TEST_RESULT %> </td>                 <!--  Test Result  -->
+                      </tr>                     
+                    <%  });  %>
 
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Ahmed Mahmoud</td>
-                        <td>Ahmed Mahmoud</td>
-                        <td>A+</td>
-                        <td>In Queue</td>
-                        
-                    </tr>
-
-                    <tr>
-                        <td scope="row">3</td>
-                        <td>Omar Mohamed</td>
-                        <td>Omar Mohamed</td>
-                        <td>A+</td>
-                        <td>In Queue</td>
-                       
-                    </tr>
                 </tbody>
+
             </table>
 
-
         </div>
-
 
     </body>
     <%- include('../templates/footer.ejs'); %>

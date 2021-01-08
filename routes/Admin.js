@@ -67,7 +67,7 @@ router.get('/DonRecords', function (req, res, next) {
 
 
 router.get('/Tests', function (req, res, next) {
-  db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN anD q.test_result="CONFIRMED"', [], function (err, rows) {
+  db.all('SELECT d.ssn,d.fname,d.blood_type,q.test_result,dr.fname as drname FROM DONOR D,Donation_requests q ,DOCTORs_DONORS_CASES N,doctor dr WHERE q.ssn=d.ssn and D.SSN = N.SSN and dr.ssn = n.DOCTOR_SSN and q.test_result="QUEUED"', [], function (err, rows) {
     res.render('pages/TestRes', { title: "Blood Bank", css1: "home", css2: "style", css3: "animate", scrp: "home", UserName: User.Fname, res: rows })
   });
 });
@@ -100,34 +100,10 @@ router.get('/Orders', function (req, res, next) {
 
 
 router.get('/Inventory', function (req, res, next) {
-
-  var NumberOfDonations;
-  db.all('SELECT COUNT(*) as n FROM INVENTORY', function (err, num) {
-    num.forEach(nd => {
-      console.log(nd.n);
-      NumberOfDonations = nd.n;
-    })
-  })
-
-  var sample;
-  db.all('SELECT blood_type, COUNT(*) as n FROM INVENTORY group by blood_type', function (err, rows) {
-    sample = rows;
-  });
-
-  var bestDonor;
-  db.all('select fname,d.ssn,count(*) as n from inventory i ,DON_RECORD d,donor dn WHERE i.Sample_ID=d.Sample_ID and d.ssn=dn.ssn GROUP by d.ssn,dn.fname ORDER by n DESC limit 1', (err, dn) => {
-    dn.forEach(don => {
-      bestDonor = don;
-    })
-  });
-
-
-
-
   var sql = 'SELECT*FROM INVENTORY I,DON_RECORD R ,DONOR D WHERE I.Sample_ID=R.Sample_ID AND R.SSN=D.SSN ';
 
   db.all(sql, [], function (err, inv) {
-    res.render('pages/Inventory', { title: "Blood Bank", css1: "home", css2: "style", css3: "", scrp: "Inventory", Inventory: inv, numdon: NumberOfDonations, samples: sample, donor: bestDonor })
+    res.render('pages/Inventory', { title: "Blood Bank", css1: "home", css2: "style", css3: "", scrp: "Inventory", Inventory: inv })
 
   })
 });
